@@ -19,7 +19,7 @@ local options = {
         pumheight = 10, -- Height of the pop up menu
         relativenumber = true, -- Show relative numberline
         scrolloff = 8, -- Number of lines to keep above and below the cursor
-        shiftwidth = 4, -- Number of space inserted for indentation
+        shiftwidth = 4, -- indent width
         showmode = false, -- Disable showing modes in command line
         sidescrolloff = 8, -- Number of columns to keep at the sides of the cursor
         signcolumn = "yes", -- Always show the sign column
@@ -29,15 +29,15 @@ local options = {
         swapfile = false, -- Disable use of swapfile for the buffer
         tabstop = 4, -- Number of space in a tab
         termguicolors = true, -- Enable 24-bit RGB color in the TUI
-        timeoutlen = 300, -- Length of time to wait for a mapped sequence
+        timeoutlen = 1000, -- Length of time to wait for a mapped sequence
         undofile = true, -- Enable persistent undo
         updatetime = 300, -- Length of time to wait before triggering the plugin
         wrap = false, -- Disable wrapping of lines longer than the width of window
         writebackup = false, -- Disable making a backup before overwriting a file
     },
     g = {
-        highlighturl_enabled = true, -- highlight URLs by default
         mapleader = " ", -- set leader key
+        highlighturl_enabled = true, -- highlight URLs by default
     }
 }
 

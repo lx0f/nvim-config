@@ -1,24 +1,22 @@
-local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    packer_bootstrap = vim.fn.system(
-        {
-            'git',
-            'clone',
-            '--depth',
-            '1',
-            'https://github.com/wbthomason/packer.nvim',
-            install_path
-        }
-    )
+    PACKER_BOOTSTRAP = vim.fn.system({
+        "git",
+        "clone",
+        "--depth",
+        "1",
+        "https://github.com/wbthomason/packer.nvim",
+        install_path,
+    })
 end
 local plugins = {
     ["wbthomason/packer.nvim"] = {},
-    ['nvim-lua/plenary.nvim'] = { module = 'plenary' },
+    ["nvim-lua/plenary.nvim"] = { module = "plenary" },
 
     ["nvim-treesitter/nvim-treesitter"] = {
         config = function()
             require("configs.treesitter")
-        end
+        end,
     },
 
     ["nvim-telescope/telescope.nvim"] = {
@@ -36,48 +34,48 @@ local plugins = {
     ["williamboman/mason.nvim"] = {
         config = function()
             require("configs.mason")
-        end
+        end,
     },
 
     ["williamboman/mason-lspconfig.nvim"] = {
         config = function()
             require("configs.mason-lspconfig")
-        end
+        end,
     },
 
     ["jayp0521/mason-null-ls.nvim"] = {
         config = function()
             require("configs.mason-null-ls")
-        end
+        end,
     },
 
-    ["folke/which-key.nvim"] = {
-        module = "which-key",
-        config = function() require "configs.which-key" end,
+    ["lewis6991/gitsigns.nvim"] = {
+        event = "BufEnter",
+        config = function()
+            require("configs.gitsigns")
+        end,
     },
 
     ["RRethy/nvim-base16"] = {},
 }
-return require('packer').startup(
-    {
-        function(use)
-            for key, plugin in pairs(plugins) do
-                plugin[1] = key
-                use(plugin)
-            end
+return require("packer").startup({
+    function(use)
+        for key, plugin in pairs(plugins) do
+            plugin[1] = key
+            use(plugin)
+        end
 
-            if packer_bootstrap then
-                require('packer').sync()
-            end
-        end,
-        config = {
-            display = {
-                open_fn = function()
-                    return require('packer.util').float { border = 'rounded' }
-                end
-            },
-            auto_clean = true,
-            compile_on_sync = true,
+        if PACKER_BOOTSTRAP then
+            require("packer").sync()
+        end
+    end,
+    config = {
+        display = {
+            open_fn = function()
+                return require("packer.util").float({ border = "rounded" })
+            end,
         },
-    }
-)
+        auto_clean = true,
+        compile_on_sync = true,
+    },
+})
