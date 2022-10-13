@@ -1,26 +1,4 @@
 local M = {}
-local servers =
-{
-        "asm_lsp",
-        "bashls",
-        "clangd",
-        "cmake",
-        "cssls",
-        "dockerls",
-        "emmet_ls",
-        "eslint",
-        "graphql",
-        "html",
-        "jsonls",
-        "kotlin_language_server",
-        "sumneko_lua",
-        "omnisharp",
-        "prismals",
-        "pyright",
-        "rust_analyzer",
-        "tailwindcss",
-        "tsserver"
-}
 
 local border = {
         { "+", "FloatBorder" },
