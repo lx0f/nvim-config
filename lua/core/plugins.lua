@@ -56,6 +56,39 @@ local plugins = {
         end,
     },
 
+    ["hrsh7th/nvim-cmp"] = {
+        event = "InsertEnter",
+        config = function()
+            require("configs.cmp")
+        end
+    },
+
+    ["rafamadriz/friendly-snippets"] = { opt = true },
+
+    ["L3MON4D3/LuaSnip"] = {
+        module = "luasnip",
+        wants = "friendly-snippets",
+        config = function()
+            require "configs.luasnip"
+        end,
+    },
+
+    ["saadparwaiz1/cmp_luasnip"] = {
+        after = "nvim-cmp",
+    },
+
+    ["hrsh7th/cmp-buffer"] = {
+        after = "nvim-cmp"
+    },
+
+    ["hrsh7th/cmp-path"] = {
+        after = "nvim-cmp"
+    },
+
+    ["hrsh7th/cmp-nvim-lsp"] = {
+        after = "nvim-cmp"
+    },
+
     ["RRethy/nvim-base16"] = {},
 }
 return require("packer").startup({
@@ -68,6 +101,7 @@ return require("packer").startup({
         if PACKER_BOOTSTRAP then
             require("packer").sync()
         end
+        use("itchyny/lightline.vim")
     end,
     config = {
         display = {
