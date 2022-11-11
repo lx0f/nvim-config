@@ -90,6 +90,10 @@ local plugins = {
     },
 
     ["RRethy/nvim-base16"] = {},
+
+    ['anufrievroman/vim-angry-reviewer'] = {
+        cmd = "AngryReviewer",
+    },
 }
 return require("packer").startup({
     function(use)
